@@ -12,9 +12,11 @@
         need CSRF token -->
 
       <!-- Take 1: writing a form directly -->
-      <%= form_tag "/lists/#{list.id}", method: :delete do %>
+      <!-- <%= form_tag "/lists/#{list.id}", method: :delete do %>
         <button>X</button>
-      <% end %>
+      <% end %> -->
+
+      <%= button_to "X", "/lists/#{list.id}", method: :delete %>
     </li>
   <% end %>
 </ul>
