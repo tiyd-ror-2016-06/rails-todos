@@ -5,6 +5,16 @@
 
 <ul>
   <% @lists.each do |list| %>
-    <li><%= link_to list.title, list %></li>
+    <li>
+      <%= link_to list.title, list %>
+      <!-- <form method="POST" action="/lists/<%= list.id %>">
+        <input name="_method" type="hidden" value="DELETE">
+        need CSRF token -->
+
+      <!-- Take 1: writing a form directly -->
+      <%= form_tag "/lists/#{list.id}", method: :delete do %>
+        <button>X</button>
+      <% end %>
+    </li>
   <% end %>
 </ul>
