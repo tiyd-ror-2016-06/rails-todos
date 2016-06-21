@@ -16,7 +16,9 @@
         <button>X</button>
       <% end %> -->
 
-      <%= button_to "X", "/lists/#{list.id}", method: :delete %>
+      <!-- <%= button_to "X", "/lists/#{list.id}", method: :delete %> -->
+
+      <%= link_to "X", list, method: :delete %>
     </li>
   <% end %>
 </ul>
