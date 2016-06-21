@@ -12,10 +12,12 @@ class ListsController < ApplicationController
   end
 
   def show
-    @list = List.find params[:id]
+    @list = current_user.lists.find params[:id]
   end
 
   def destroy
-    raise
+    list = current_user.lists.find params[:id]
+    list.destroy
+    redirect_to "/lists"
   end
 end
