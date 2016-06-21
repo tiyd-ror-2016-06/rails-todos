@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   root 'welcome#index'
 
-  get "/lists/new" => "lists#new"
+  get "/lists/new" => "lists#new", as: :make_a_list
+  get "/lists/:id" => "lists#show", as: :list
   post "/lists" => "lists#create"
   get "/lists" => "lists#index"
 
