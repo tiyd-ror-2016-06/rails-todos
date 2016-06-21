@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   get "/lists/new" => "lists#new"
+  post "/lists" => "lists#create"
+  get "/lists" => "lists#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
