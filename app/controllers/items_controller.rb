@@ -2,14 +2,14 @@ class ItemsController < ApplicationController
   before_action :set_list
 
   def new
+    @item = @list.items.new
   end
 
   def create
-    item = @list.items.new approved_params
-    if item.save
+    @item = @list.items.new approved_params
+    if @item.save
       redirect_to @list
     else
-      @message = "NO!"
       render :new
     end
   end
