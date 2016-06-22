@@ -2,11 +2,16 @@
 
 <%# form_for [@list, @item] do %>
 <%= form_for @item, url: list_items_path(@list) do |f| %>
-  <%= f.label :description %>
-  <%= f.text_field :description %>
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_field :description, class: "form-control" %>
+  </div>
 
-  <%= f.label :due_date %>
-  <%= f.date_field :due_date %>
+  <div class="form-group has-error">
+    <%= f.label :due_date %>
+    <%= f.date_field :due_date, class: "form-control" %>
+    <span class="help-block">Error messages here</span>
+  </div>
   <!-- <div class="<%= @item.errors[:description].any? ? 'invalid' : '' %>">
     <label for="description">Description</label>
     <input
@@ -41,5 +46,5 @@
     <% end %>
   </div> -->
 
-  <button>Save</button>
+  <button class="btn btn-primary">Save</button>
 <% end %>
