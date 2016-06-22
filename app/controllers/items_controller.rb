@@ -21,6 +21,6 @@ class ItemsController < ApplicationController
   end
 
   def approved_params
-    params.permit(:description, :due_date)
+    params.require(:item).permit(:description, :due_date)
   end
 end
