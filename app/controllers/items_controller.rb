@@ -1,10 +1,17 @@
 class ItemsController < ApplicationController
+  before_action :set_list
+
   def new
-    @list = current_user.lists.find params[:list_id]
   end
 
   def create
-    Item.create! description: params[:description], list_id: params[:list_id]
-    redirect_to "/lists/#{params[:list_id]}"
+    @list.items.create! description: params[:description]
+    redirect_to "/lists/#{@list.id}"
+  end
+
+  private
+
+  def set_list
+    @list = current_user.lists.find params[:list_id]
   end
 end
