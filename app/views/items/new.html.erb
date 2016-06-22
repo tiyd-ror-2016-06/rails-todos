@@ -2,6 +2,10 @@
 
 <%# form_tag "/lists/#{@list_id}/items" do %>
 <%= form_tag list_items_path(@list) do %>
+  <% if @message %>
+    <%= @message %>
+  <% end %>
+  
   <input type="text" name="description" placeholder="What do you want to do?">
   <button>Save</button>
 <% end %>

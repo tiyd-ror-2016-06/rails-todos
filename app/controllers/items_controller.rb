@@ -5,13 +5,22 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @list.items.create! description: params[:description]
-    redirect_to "/lists/#{@list.id}"
+    item = @list.items.new approved_params
+    if item.save
+      redirect_to @list
+    else
+      @message = "NO!"
+      render :new
+    end
   end
 
   private
 
   def set_list
     @list = current_user.lists.find params[:list_id]
+  end
+
+  def approved_params
+    params.permit(:description)
   end
 end
