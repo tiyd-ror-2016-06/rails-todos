@@ -1,7 +1,7 @@
 <h1>Add a New Item</h1>
 
-<!-- <form method="POST" action="/lists/<%= @list_id %>/items"> -->
-<%= form_tag "/lists/#{@list_id}/items" do %>
+<%# form_tag "/lists/#{@list_id}/items" do %>
+<%= form_tag list_items_path(@list) do %>
   <input type="text" name="description" placeholder="What do you want to do?">
   <button>Save</button>
 <% end %>

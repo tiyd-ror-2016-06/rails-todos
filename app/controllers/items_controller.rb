@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   def new
-    @list_id = params[:list_id]
+    @list = current_user.lists.find params[:list_id]
   end
 
   def create
