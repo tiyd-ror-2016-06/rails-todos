@@ -1,26 +1,39 @@
 <h1>Add a New Item</h1>
 
 <%= form_tag list_items_path(@list) do %>
-  <% if @item.errors %>
-    <% @item.errors.full_messages.each do |msg| %>
-      <p><%= msg %></p>
+  <div class="<%= @item.errors[:description].any? ? 'invalid' : '' %>">
+    <label for="description">Description</label>
+    <input
+      type="text"
+      name="description"
+      placeholder="What do you want to do?"
+      value="<%= @item.description %>"
+    >
+    <% if @item.errors[:description].any? %>
+      <ul>
+        <% @item.errors[:description].each do |err| %>
+          <li><%= err %></li>
+        <% end %>
+      </ul>
     <% end %>
-  <% end %>
+  </div>
 
-  <input
-    type="text"
-    name="description"
-    placeholder="What do you want to do?"
-    value="<%= @item.description %>"
-    class="<%= @item.errors[:description].any? ? 'invalid' : '' %>"
-  >
-  <input
-    type="date"
-    name="due_date"
-    placeholder="Due"
-    value="<%= @item.due_date %>"
-    class="<%= @item.errors[:due_date].any? ? 'invalid' : '' %>"
-  >
+  <div class="<%= @item.errors[:due_date].any? ? 'invalid' : '' %>">
+    <label for="due_date">Due</label>
+    <input
+      type="date"
+      name="due_date"
+      placeholder="Due"
+      value="<%= @item.due_date %>"
+    >
+    <% if @item.errors[:due_date].any? %>
+      <ul>
+        <% @item.errors[:due_date].each do |err| %>
+          <li><%= err %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
 
   <button>Save</button>
 <% end %>

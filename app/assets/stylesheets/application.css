@@ -14,6 +14,10 @@
  *= require_self
  */
 
-.invalid {
+.invalid input {
   border: 1px solid red;
+}
+
+.invalid li {
+  color: red;
 }
