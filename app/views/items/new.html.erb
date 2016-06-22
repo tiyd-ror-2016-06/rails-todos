@@ -7,10 +7,20 @@
     <% end %>
   <% end %>
 
-  <input type="text" name="description" placeholder="What do you want to do?"
-    value="<%= @item.description %>">
-  <input type="date" name="due_date" placeholder="Due"
-    value="<%= @item.due_date %>">
+  <input
+    type="text"
+    name="description"
+    placeholder="What do you want to do?"
+    value="<%= @item.description %>"
+    class="<%= @item.errors[:description].any? ? 'invalid' : '' %>"
+  >
+  <input
+    type="date"
+    name="due_date"
+    placeholder="Due"
+    value="<%= @item.due_date %>"
+    class="<%= @item.errors[:due_date].any? ? 'invalid' : '' %>"
+  >
 
   <button>Save</button>
 <% end %>
