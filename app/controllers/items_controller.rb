@@ -8,6 +8,7 @@ class ItemsController < ApplicationController
   def create
     @item = @list.items.new approved_params
     if @item.save
+      flash[:notice] = "Item created!" 
       redirect_to @list
     else
       render :new
