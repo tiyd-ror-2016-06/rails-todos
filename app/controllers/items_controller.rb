@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_list
+  before_action :set_list, only: [:new, :create]
 
   def new
     @item = @list.items.new
@@ -8,10 +8,29 @@ class ItemsController < ApplicationController
   def create
     @item = @list.items.new approved_params
     if @item.save
-      flash[:notice] = "Item created!" 
+      flash[:notice] = "Item created!"
       redirect_to @list
     else
       render :new
+    end
+  end
+
+  def edit
+    @item = current_user.items.find params[:id]
+    # @list = @item.list
+  end
+
+  def update
+    @item = current_user.items.find params[:id]
+    # approved_params.each do |key, val|
+    #   @item[key] = val
+    # end
+    # @item.save
+    if @item.update approved_params
+      flash[:notice] = "Item updated!"
+      redirect_to @item.list
+    else
+      render :edit
     end
   end
 
