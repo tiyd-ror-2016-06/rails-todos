@@ -11,13 +11,6 @@
  * file per style scope.
  *
  *= require_tree .
+ *= require rails_bootstrap_forms
  *= require_self
  */
-
-.field_with_errors input {
-  border: 1px solid red;
-}
-
-.invalid li {
-  color: red;
-}
