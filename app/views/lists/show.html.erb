@@ -1,5 +1,7 @@
 <%= link_to "Show all", "/lists", class: "btn btn-default" %>
-<%= link_to "New item", new_list_item_path(@list), class: "btn btn-default" %>
+<% if policy(@list).add_items? %>
+  <%= link_to "New item", new_list_item_path(@list), class: "btn btn-default" %>
+<% end %>
 
 <h2>
   <%= @list.title %>
@@ -22,7 +24,9 @@
         <td><%= item.description %></td>
         <td><%= item.due_date %></td>
         <td>
-          <%= link_to "Edit", edit_item_path(item), class: "btn btn-default btn-xs" %>
+          <% if policy(item).edit? %>
+            <%= link_to "Edit", edit_item_path(item), class: "btn btn-default btn-xs" %>
+          <% end %>
         </td>
       </tr>
     <% end %>

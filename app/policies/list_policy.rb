@@ -1,6 +1,6 @@
 class ListPolicy < ApplicationPolicy
   def show?
-    is_owner?
+    true
   end
 
   def destroy?
@@ -9,6 +9,10 @@ class ListPolicy < ApplicationPolicy
 
   def create?
     is_owner? && has_lists_available?
+  end
+
+  def add_items?
+    is_owner?
   end
 
   private
