@@ -1,6 +1,6 @@
 class ListPolicy < ApplicationPolicy
   def show?
-    true
+    is_owner? || is_friends_with_owner?
   end
 
   def destroy?
@@ -23,5 +23,9 @@ class ListPolicy < ApplicationPolicy
 
   def has_lists_available?
     true
+  end
+
+  def is_friends_with_owner?
+    user.friends.include? record.user
   end
 end

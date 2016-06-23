@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160623134618) do
+ActiveRecord::Schema.define(version: 20160623155337) do
+
+  create_table "friendships", force: :cascade do |t|
+    t.boolean  "confirmed"
+    t.integer  "user_1_id"
+    t.integer  "user_2_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "friendships", ["user_1_id"], name: "index_friendships_on_user_1_id"
+  add_index "friendships", ["user_2_id"], name: "index_friendships_on_user_2_id"
 
   create_table "items", force: :cascade do |t|
     t.integer  "list_id"
