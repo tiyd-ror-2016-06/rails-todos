@@ -3,7 +3,9 @@ class ListsController < ApplicationController
   end
 
   def create
-    list = current_user.lists.create! title: params[:title]
+    list = current_user.lists.new title: params[:title]
+    authorize list
+    list.save!
     redirect_to "/lists"
   end
 
@@ -18,6 +20,7 @@ class ListsController < ApplicationController
 
   def destroy
     list = current_user.lists.find params[:id]
+    authorize list
     list.destroy
     redirect_to "/lists"
   end
