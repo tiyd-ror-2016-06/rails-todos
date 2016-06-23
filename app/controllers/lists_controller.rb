@@ -12,7 +12,8 @@ class ListsController < ApplicationController
   end
 
   def show
-    @list = current_user.lists.find params[:id]
+    @list = List.find params[:id]
+    authorize @list
   end
 
   def destroy
