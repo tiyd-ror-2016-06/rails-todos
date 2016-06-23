@@ -3,10 +3,12 @@ class ItemsController < ApplicationController
 
   def new
     @item = @list.items.new
+    authorize @item
   end
 
   def create
     @item = @list.items.new approved_params
+    authorize @item
     if @item.save
       flash[:notice] = "Item created!"
       redirect_to @list
@@ -16,16 +18,13 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = current_user.items.find params[:id]
-    # @list = @item.list
+    @item = Item.find params[:id]
+    authorize @item
   end
 
   def update
-    @item = current_user.items.find params[:id]
-    # approved_params.each do |key, val|
-    #   @item[key] = val
-    # end
-    # @item.save
+    @item = Item.find params[:id]
+    authorize @item
     if @item.update approved_params
       flash[:notice] = "Item updated!"
       redirect_to @item.list
@@ -37,7 +36,7 @@ class ItemsController < ApplicationController
   private
 
   def set_list
-    @list = current_user.lists.find params[:list_id]
+    @list = List.find params[:list_id]
   end
 
   def approved_params
