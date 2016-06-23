@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users
+  
   root 'lists#index'
 
   # get "/lists/new" => "lists#new", as: :make_a_list
