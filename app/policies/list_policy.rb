@@ -1,8 +1,4 @@
-class ListPolicy
-  def initialize user, list
-    @user, @list = user, list
-  end
-
+class ListPolicy < ApplicationPolicy
   def show?
     is_owner?
   end
@@ -18,15 +14,10 @@ class ListPolicy
   private
 
   def is_owner?
-    @user == @list.user
+    user == record.user
   end
 
   def has_lists_available?
     true
-    # if @user.premium?
-    #   @user.lists.count < 100
-    # else
-    #   @user.lists.count < 10
-    # end
   end
 end

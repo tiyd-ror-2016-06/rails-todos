@@ -1,27 +1,17 @@
-class ItemPolicy
-  attr_reader :user, :item
-
-  def initialize user, item
-    @user, @item = user, item
-  end
-
-  def new?
-    create?
+class ItemPolicy < ApplicationPolicy
+  def show?
+    true
   end
 
   def create?
-    item.list.user == user
-  end
-
-  def edit?
-    update?
+    record.list.user == user
   end
 
   def update?
-    item.list.user == user
+    record.list.user == user
   end
 
   def destroy?
-    item.list.user == user
+    record.list.user == user
   end
 end
