@@ -12,4 +12,8 @@ class User < ActiveRecord::Base
     ids += Friendship.where(user_2: self).pluck :user_1_id
     User.where(id: ids.uniq)
   end
+
+  def floopy?
+    false
+  end
 end

@@ -21,7 +21,7 @@ class ListsController < ApplicationController
   end
 
   def destroy
-    list = current_user.lists.find params[:id]
+    list = List.find params[:id]
     authorize list
     list.destroy
     redirect_to "/lists"
