@@ -1,4 +1,6 @@
 var computeLetterCount = function() {
+  alert("counting")
+
   var contents = $("#tweet-contents")
 
   var tweet = contents.val()
@@ -28,9 +30,10 @@ $(document).ready(function() {
     }
   })
 
-  $("#tweet-contents").keyup(function(event) {
-    computeLetterCount()
-  })
+  // $("#tweet-contents").keyup(function() {
+  //   computeLetterCount()
+  // })
+  $("#tweet-contents").keyup( computeLetterCount )
 
   computeLetterCount()
 })
