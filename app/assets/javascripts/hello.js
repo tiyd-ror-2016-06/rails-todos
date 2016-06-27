@@ -1,11 +1,15 @@
 // alert("hey")
 console.log("log")
 
-var thing_to_do_on_startup = function() {
+var setupHeader = function() {
   $("h2").addClass("header")
-
-  $(".js-btn").addClass("btn-danger")
 }
 
-// $(thing_to_do_on_startup)
-$(document).ready(thing_to_do_on_startup)
+var styleLinks = function(btnClass) {
+  $(".js-btn").addClass("btn-" + btnClass)
+}
+
+$(document).ready(function() {
+  setupHeader()
+  styleLinks("primary")
+})
