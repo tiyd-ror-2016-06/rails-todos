@@ -20,13 +20,21 @@
   <tbody>
     <% @list.items.each do |item| %>
       <tr>
-        <td><%= item.id %></td>
+        <td>
+          <span class="test" foo="bar" data-foo="<%= item.id %>">
+            <%= item.id %>
+          </span>
+        </td>
         <td><%= item.description %></td>
         <td><%= item.due_date %></td>
         <td>
           <% if policy(item).edit? %>
             <%= link_to "Edit", edit_item_path(item), class: "btn btn-default btn-xs" %>
           <% end %>
+
+          <a href="#" class="btn btn-default btn-xs js-btn">
+            Edit with Javascript
+          </a>
         </td>
       </tr>
     <% end %>
