@@ -1,3 +1,11 @@
+var computeLetterCount = function() {
+  var contents = $("#tweet-contents")
+
+  var tweet = contents.val()
+
+  $("#new-tweet p").text( (180 - tweet.length) + " characters left" )
+}
+
 $(document).ready(function() {
 
   $("#save-tweet").click(function() {
@@ -12,6 +20,8 @@ $(document).ready(function() {
       contents.val("")
       contents.removeClass("invalid")
 
+      computeLetterCount()
+
       $(".item-list").append( item )
     } else {
       contents.addClass("invalid")
@@ -19,11 +29,8 @@ $(document).ready(function() {
   })
 
   $("#tweet-contents").keyup(function(event) {
-    var contents = $("#tweet-contents")
-
-    var tweet = contents.val()
-
-    $("#new-tweet p").text( (140 - tweet.length) + " characters left" )
+    computeLetterCount()
   })
 
+  computeLetterCount()
 })
