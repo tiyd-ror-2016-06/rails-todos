@@ -3,15 +3,19 @@ $(document).ready(function() {
   $("#save-tweet").click(function() {
     console.log("clicked btn")
 
-    var tweet = $("#tweet-contents").val()
+    var contents = $("#tweet-contents")
 
-    // console.log(tweet, tweet.length)
+    var tweet = contents.val()
 
-    // var item = $("<li>" + tweet + "</li>")
-    var item = $("<li>").text(tweet)
-    $("#tweet-contents").val("")
+    if (tweet.length > 0) {
+      var item = $("<li>").text(tweet)
+      contents.val("")
+      contents.removeClass("invalid")
 
-    $(".item-list").append( item )
+      $(".item-list").append( item )
+    } else {
+      contents.addClass("invalid")
+    }
   })
 
 })
