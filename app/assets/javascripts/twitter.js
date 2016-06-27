@@ -1,6 +1,4 @@
 var computeLetterCount = function() {
-  alert("counting")
-
   var contents = $("#tweet-contents")
 
   var tweet = contents.val()
@@ -18,11 +16,21 @@ $(document).ready(function() {
     var tweet = contents.val()
 
     if (tweet.length > 0) {
-      var item = $("<li>").text(tweet)
       contents.val("")
       contents.removeClass("invalid")
 
       computeLetterCount()
+
+      // var item = $("<li>" + tweet + "<button class='delete-btn'>X</button></li>")
+
+      var item = $("<li>")
+      item.append( $("<span>").text(tweet) )
+      var newBtn = $("<button>").addClass("delete-btn").text("X")
+      item.append( newBtn )
+
+      newBtn.click(function() {
+        $(this).parent().remove()
+      })
 
       $(".item-list").append( item )
     } else {
