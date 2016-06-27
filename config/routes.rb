@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  
+
   root 'lists#index'
 
   # get "/lists/new" => "lists#new", as: :make_a_list
@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   resources :lists, except: [:edit, :update] do
     resources :items, shallow: true
   end
+
+  get "/sandbox/twitter" => "sandbox#twitter"
 end
