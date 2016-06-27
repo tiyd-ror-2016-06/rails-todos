@@ -1,12 +1,16 @@
+var maxlength = 180
+
 var computeLetterCount = function() {
   var contents = $("#tweet-contents")
 
   var tweet = contents.val()
 
-  $("#new-tweet p").text( (180 - tweet.length) + " characters left" )
+  $("#new-tweet p").text( (maxlength - tweet.length) + " characters left" )
 }
 
 $(document).ready(function() {
+
+  $("#tweet-contents").attr("maxlength", maxlength)
 
   $("#save-tweet").click(function() {
     console.log("clicked btn")
