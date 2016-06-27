@@ -15,8 +15,13 @@ $(document).ready(function() {
   setupHeader()
   styleLinks("primary")
 
-  $("a").click(function(e) {
+  $(".js-btn").click(function(e) {
     e.preventDefault()
-    alert("You clicked on a link")
+
+    var clicked = $(this)
+    var itemId = clicked.data("item-id")
+
+    // alert("You clicked on a link: " + itemId)
+    window.location.href = "/items/" + itemId + "/edit"
   })
 })
