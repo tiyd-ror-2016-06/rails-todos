@@ -18,4 +18,12 @@ $(document).ready(function() {
     }
   })
 
+  $("#tweet-contents").keyup(function(event) {
+    var contents = $("#tweet-contents")
+
+    var tweet = contents.val()
+
+    $("#new-tweet p").text( (140 - tweet.length) + " characters left" )
+  })
+
 })
