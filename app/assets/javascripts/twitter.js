@@ -33,7 +33,8 @@ $(document).ready(function() {
       item.append( newBtn )
 
       newBtn.click(function() {
-        $(this).parent().remove()
+        // $(this).parent().remove()
+        item.remove()
       })
 
       $(".item-list").append( item )
