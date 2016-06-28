@@ -23,3 +23,7 @@
 .invalid {
   border: 2px solid red;
 }
+
+.incomplete .glyphicon-ok {
+  display: none;
+}

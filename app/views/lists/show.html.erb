@@ -19,11 +19,9 @@
   </thead>
   <tbody>
     <% @list.items.each do |item| %>
-      <tr>
+      <tr class="incomplete">
         <td>
-          <% if item.done? %>
-            <i class="glyphicon glyphicon-ok"></i>
-          <% end %>
+          <i class="glyphicon glyphicon-ok"></i>
           <span class="test" foo="bar" data-foo="<%= item.id %>">
             <%= item.id %>
           </span>
@@ -39,7 +37,10 @@
             Edit with Javascript
           </a>
 
-          <%= link_to "Done", item_finish_path(item), class: "btn btn-danger btn-xs", method: :patch %>
+          <!-- <%= link_to "Done", item_finish_path(item), class: "btn btn-danger btn-xs", method: :patch %> -->
+          <a href="#" class="btn btn-danger btn-xs done-btn">
+            Done
+          </a>
         </td>
       </tr>
     <% end %>
