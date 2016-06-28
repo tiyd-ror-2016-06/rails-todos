@@ -12,7 +12,8 @@ $(document).ready(function() {
 
     $.ajax("/items/" + itemId + "/finish.json", {
       method:  "PATCH",
-      success: function() {
+      success: function(data) {
+        alert(data.message + "!!!")
         row.removeClass("incomplete")
       },
       error: function() { alert("Something went wrong!") }

@@ -42,9 +42,15 @@ class ItemsController < ApplicationController
     authorize item
     item.update! completed_at: Time.now
 
+    message = [
+      "You did real good",
+      "Great job",
+      "Keep at it"
+    ].sample
+
     respond_to do |format|
       format.html { redirect_to :back, notice: "#{item.description} done!" }
-      format.json { render json: { status: :ok } }
+      format.json { render json: { status: :ok, message: message } }
     end
   end
 
