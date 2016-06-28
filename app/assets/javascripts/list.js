@@ -5,14 +5,17 @@ $(document).ready(function() {
 
     var row = $(this).closest("tr")
 
-    row.removeClass("incomplete")
     var itemId = row.data("item-id")
 
     // var path = "/items/" + itemId + "/finish"
     // console.log("path is", path)
 
     $.ajax("/items/" + itemId + "/finish.json", {
-      method: "PATCH"
+      method:  "PATCH",
+      success: function() {
+        row.removeClass("incomplete")
+      },
+      error: function() { alert("Something went wrong!") }
     })
 
   })

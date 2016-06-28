@@ -35,12 +35,16 @@ class ItemsController < ApplicationController
 
   def finish
     item = Item.find params[:item_id]
+    # sleep 2
+    # if [:heads, :tails].sample == :heads
+    #   1 / 0
+    # end
     authorize item
     item.update! completed_at: Time.now
 
     respond_to do |format|
       format.html { redirect_to :back, notice: "#{item.description} done!" }
-      format.json { head :ok }
+      format.json { render json: { status: :ok } }
     end
   end
 
