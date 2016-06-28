@@ -1,2 +1,5 @@
-json.user current_user
-json.lists @lists
+json.user current_user, :id, :email
+json.lists @lists do |list|
+  json.(list, :id, :title, :created_at)
+  json.angry_title list.title.upcase + "!!!"
+end
