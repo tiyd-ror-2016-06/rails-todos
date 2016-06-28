@@ -14,4 +14,8 @@ class ItemPolicy < ApplicationPolicy
   def destroy?
     record.list.user == user
   end
+
+  def finish?
+    record.list.user == user
+  end
 end

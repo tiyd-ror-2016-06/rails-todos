@@ -10,8 +10,12 @@ Rails.application.routes.draw do
   # delete "/lists/:id" => "lists#destroy"
 
   resources :lists, except: [:edit, :update] do
-    resources :items, shallow: true
+    resources :items, shallow: true do
+      patch :finish
+    end
   end
+
+  # patch "/items/:id/finish" => "items#finish"
 
   get "/sandbox/twitter" => "sandbox#twitter"
 end

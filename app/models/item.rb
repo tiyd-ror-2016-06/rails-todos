@@ -5,6 +5,10 @@ class Item < ActiveRecord::Base
   validates_uniqueness_of :description, scope: :list
   validate :due_date_cannot_be_in_the_past
 
+  def done?
+    completed_at.present?
+  end
+
   private
 
   def due_date_cannot_be_in_the_past

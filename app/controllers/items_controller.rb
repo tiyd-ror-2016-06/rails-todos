@@ -33,6 +33,13 @@ class ItemsController < ApplicationController
     end
   end
 
+  def finish
+    item = Item.find params[:item_id]
+    authorize item
+    item.update! completed_at: Time.now
+    redirect_to :back, notice: "#{item.description} done!"
+  end
+
   private
 
   def set_list
