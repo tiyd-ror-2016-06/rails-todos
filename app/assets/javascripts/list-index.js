@@ -1,3 +1,5 @@
+var floop
+
 var showLists = function() {
   console.log("Checking for new lists")
 
@@ -6,21 +8,34 @@ var showLists = function() {
     error:   function() { alert("Mistakes were made") },
     success: function(data) {
       // console.log(data)
-      var floop = $("#my-lists")
       floop.empty()
 
       for (var i=0; i < data.lists.length; i++) {
         var list = data.lists[i]
 
-        var newItem = $("<li>").text(list.title + " (" + list.item_count + ")")
+        var itemLink = $("<a>").attr("href", "/lists/" + list.id).text(list.title)
+        var count = $("<span>").text(" (" + list.item_count + ")")
+
+        var newItem = $("<li>")
+        newItem.append(itemLink)
+        newItem.append(count)
+
         floop.append(newItem)
       }
     }
   })
 }
 
-$(document).ready(function() {
+var startListPage = function() {
   setInterval(showLists, 5000)
-
   showLists()
+}
+
+$(document).ready(function() {
+  floop = $("#my-lists")
+  if (floop.length > 0) {
+    startListPage()
+  } else {
+    console.log("not on the lists page")
+  }
 })
