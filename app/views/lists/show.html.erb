@@ -19,12 +19,9 @@
   </thead>
   <tbody>
     <% @list.items.each do |item| %>
-      <tr class="incomplete">
+      <tr class="incomplete" data-item-id="<%= item.id %>">
         <td>
           <i class="glyphicon glyphicon-ok"></i>
-          <span class="test" foo="bar" data-foo="<%= item.id %>">
-            <%= item.id %>
-          </span>
         </td>
         <td><%= item.description %></td>
         <td><%= item.due_date %></td>
