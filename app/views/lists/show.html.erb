@@ -19,7 +19,7 @@
   </thead>
   <tbody>
     <% @list.items.each do |item| %>
-      <tr class="incomplete" data-item-id="<%= item.id %>">
+      <tr class='<%= item.done? ? "" : "incomplete" %>' data-item-id="<%= item.id %>">
         <td>
           <i class="glyphicon glyphicon-ok"></i>
         </td>

@@ -8,9 +8,13 @@ $(document).ready(function() {
     row.removeClass("incomplete")
     var itemId = row.data("item-id")
 
-    var path = "/items/" + itemId + "/finish"
+    // var path = "/items/" + itemId + "/finish"
+    // console.log("path is", path)
 
-    console.log("path is", path)
+    $.ajax("/items/" + itemId + "/finish.json", {
+      method: "PATCH"
+    })
+
   })
 
 })

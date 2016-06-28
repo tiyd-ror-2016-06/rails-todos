@@ -37,7 +37,11 @@ class ItemsController < ApplicationController
     item = Item.find params[:item_id]
     authorize item
     item.update! completed_at: Time.now
-    redirect_to :back, notice: "#{item.description} done!"
+
+    respond_to do |format|
+      format.html { redirect_to :back, notice: "#{item.description} done!" }
+      format.json { head :ok }
+    end
   end
 
   private
