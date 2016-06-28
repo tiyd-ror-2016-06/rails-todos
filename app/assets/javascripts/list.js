@@ -11,7 +11,7 @@ $(document).ready(function() {
     // console.log("path is", path)
 
     $.ajax("/items/" + itemId + "/finish.json", {
-      method:  "PATCH",
+      method: "PATCH",
       success: function(data) {
         alert(data.message + "!!!")
         row.removeClass("incomplete")
