@@ -27,7 +27,7 @@ var showLists = function() {
 }
 
 var startListPage = function() {
-  setInterval(showLists, 5000)
+  // setInterval(showLists, 5000)
   showLists()
 }
 

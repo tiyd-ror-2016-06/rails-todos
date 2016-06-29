@@ -15,3 +15,9 @@
 //= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .
+
+console.log("Starting app")
+
+$(document).ready(function() {
+  console.log("ready")
+})
