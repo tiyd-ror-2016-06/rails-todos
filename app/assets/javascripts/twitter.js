@@ -8,7 +8,9 @@ var computeLetterCount = function() {
   $("#new-tweet p").text( (maxlength - tweet.length) + " characters left" )
 }
 
-$(document).ready(function() {
+// .on("ready", ...)
+// .ready(...)
+$(document).on("page:change", function() {
 
   $("#tweet-contents").attr("maxlength", maxlength)
 

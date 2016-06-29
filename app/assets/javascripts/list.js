@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).on("page:change", function() {
 
   $(".done-btn").click(function() {
     var check = $("<i>").addClass("glyphicon").addClass("glyphicon-ok")

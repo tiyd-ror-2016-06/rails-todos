@@ -31,7 +31,7 @@ var startListPage = function() {
   showLists()
 }
 
-$(document).ready(function() {
+$(document).on("page:change", function() {
   floop = $("#my-lists")
   if (floop.length > 0) {
     startListPage()

@@ -11,7 +11,7 @@ var styleLinks = function(btnClass) {
 
 // .addEventListener("click", function())
 // .onClick = function()
-$(document).ready(function() {
+$(document).on("page:change", function() {
   setupHeader()
   styleLinks("primary")
 
