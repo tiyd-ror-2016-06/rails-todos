@@ -31,14 +31,4 @@ describe ListsController do
     # List.find list.id works ...
     expect(other.lists.count).to eq count
   end
-
-  skip "can test policies" do
-    user = User.first
-    list = List.last
-
-    p = ListPolicy.new(user, list)
-
-    expect(p.create?).to eq true
-    expect(p.destroy?).to eq false
-  end
 end

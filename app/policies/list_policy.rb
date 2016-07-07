@@ -4,7 +4,7 @@ class ListPolicy < ApplicationPolicy
   end
 
   def destroy?
-    is_owner?
+    is_owner? || user.admin?
   end
 
   def create?
