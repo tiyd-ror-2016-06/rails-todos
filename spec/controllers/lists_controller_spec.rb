@@ -21,14 +21,13 @@ describe ListsController do
     user = create :user
     sign_in user
 
-    other = create :user
-    list  = other.lists.create! title: "Not your list"
+    list = create :list
 
-    count = other.lists.count
+    count = list.user.lists.count
     response = delete :destroy, id: list.id
 
     expect(response.status).to eq 302
     # List.find list.id works ...
-    expect(other.lists.count).to eq count
+    expect(list.user.lists.count).to eq count
   end
 end
