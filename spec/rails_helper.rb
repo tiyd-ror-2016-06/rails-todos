@@ -59,4 +59,7 @@ RSpec.configure do |config|
   config.before :each, type: :controller do
     @request.env["devise.mapping"] = Devise.mappings[:user]
   end
+
+  # use `create` instead of `FactoryGirl.create`
+  config.include FactoryGirl::Syntax::Methods
 end

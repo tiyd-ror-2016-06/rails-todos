@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe ListsController do
   it "lets users create lists" do
-    user = User.create! email: "user@example.com", password: "hunter2"
+    user = create :user
     sign_in user
 
     # expect do
@@ -18,10 +18,10 @@ describe ListsController do
   end
 
   it "disallows deleting other lists" do
-    user = User.create! email: "user@example.com", password: "hunter2"
+    user = create :user
     sign_in user
 
-    other = User.create! email: "user2@example.com", password: "hunter2"
+    other = create :user
     list  = other.lists.create! title: "Not your list"
 
     count = other.lists.count

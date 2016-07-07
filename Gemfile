@@ -28,6 +28,7 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'rspec-rails'
   gem 'sqlite3'
+  gem 'factory_girl_rails'
 end
 
 group :development do
