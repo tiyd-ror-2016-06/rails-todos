@@ -19,6 +19,7 @@ gem 'devise'
 gem 'pundit'
 
 gem 'sidekiq'
+gem 'sinatra', require: false
 
 group :development, :test do
   gem 'byebug'

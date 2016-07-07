@@ -1,3 +1,5 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
   devise_for :users
 
@@ -14,6 +16,8 @@ Rails.application.routes.draw do
       patch :finish
     end
   end
+
+  mount Sidekiq::Web => "/sidekiq"
 
   # patch "/items/:id/finish" => "items#finish"
 
