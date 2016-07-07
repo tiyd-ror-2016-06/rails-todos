@@ -18,6 +18,8 @@ gem 'quiet_assets'
 gem 'devise'
 gem 'pundit'
 
+gem 'sidekiq'
+
 group :development, :test do
   gem 'byebug'
   gem 'pry-rails'
